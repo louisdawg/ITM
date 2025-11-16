@@ -11,12 +11,13 @@ app.use(express.json());
 
 const pool = new Pool({
     user: 'postgres',
-    host: 'localhost', 
+    host: 'localhost',
     database: 'italienisches_heer',
     password: '123',
     port: 5432,
 });
 
+// Teste Datenbank
 pool.on('connect', () => {
     console.log('✅ Erfolgreich mit PostgreSQL verbunden');
 });
@@ -25,6 +26,7 @@ pool.on('error', (err) => {
     console.error('❌ PostgreSQL Verbindungsfehler:', err);
 });
 
+// Health Check Endpoint
 app.get('/api/health', async (req, res) => {
     try {
         await pool.query('SELECT 1');
@@ -77,6 +79,8 @@ app.get('/api/hierarchie', async (req, res) => {
 
         const result = await pool.query(query);
         
+        console.log(`✅ ${result.rows.length} Dienstgrade geladen`);
+        
         res.json({
             success: true,
             data: result.rows,
@@ -92,6 +96,62 @@ app.get('/api/hierarchie', async (req, res) => {
     }
 });
 
+app.get('/api/statistiken', async (req, res) => {
+    try {
+        const result = await pool.query(`
+            SELECT 
+                rang_kategorie,
+                COUNT(*) as anzahl
+            FROM dienstgrade 
+            GROUP BY rang_kategorie 
+            ORDER BY 
+                CASE rang_kategorie 
+                    WHEN 'Generale' THEN 1
+                    WHEN 'Offiziere' THEN 2
+                    WHEN 'Unteroffiziere' THEN 3
+                    WHEN 'Mannschaften' THEN 4
+                END
+        `);
+        
+        res.json({
+            success: true,
+            data: result.rows
+        });
+        
+    } catch (error) {
+        console.error('❌ Fehler bei Statistik-Abfrage:', error);
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
+// Alle Dienstgrade
+app.get('/api/dienstgrade', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM dienstgrade ORDER BY id');
+        
+        res.json({
+            success: true,
+            data: result.rows
+        });
+        
+    } catch (error) {
+        console.error('❌ Fehler bei Dienstgrade-Abfrage:', error);
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Backend Server läuft auf http://localhost:${PORT}`);
+    console.log(`📊 API Endpoints:`);
+    console.log(`   GET /api/health - Health Check`);
+    console.log(`   GET /api/hierarchie - Hierarchische Daten`);
+    console.log(`   GET /api/dienstgrade - Alle Dienstgrade`);
+    console.log(`   GET /api/statistiken - Statistiken`);
+    console.log(`\n💡 Stelle sicher dass PostgreSQL läuft und die Datenbank existiert!`);
 });

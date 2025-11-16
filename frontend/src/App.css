@@ -5,9 +5,10 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #008C45 0%, #F4F5F0 50%, #CD212A 100%);
   min-height: 100vh;
+  background-attachment: fixed;
 }
 
 .App {
@@ -17,73 +18,146 @@ body {
 }
 
 .App-header {
-  background: #2c3e50;
-  color: white;
-  padding: 20px;
+  background: linear-gradient(90deg, #008C45 0%, #F4F5F0 50%, #CD212A 100%);
+  color: #2C3E50;
+  padding: 1.5rem 2rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #2C3E50;
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #008C45 33.33%, #F4F5F0 33.33%, #F4F5F0 66.66%, #CD212A 66.66%);
 }
 
 .App-header h1 {
-  font-size: 2.2em;
-  margin-bottom: 8px;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  letter-spacing: -0.5px;
 }
 
 .App-header p {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   opacity: 0.9;
-  margin-bottom: 15px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
+/* Stats Container */
 .stats {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 0.8rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .stat-item {
-  background: rgba(255,255,255,0.2);
-  padding: 6px 12px;
+  background: linear-gradient(135deg, #2C3E50, #34495E);
+  color: white;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-1px);
 }
 
 .stat-item.total {
-  background: #e74c3c;
+  background: linear-gradient(135deg, #CD212A, #E74C3C);
 }
 
+/* Refresh Button */
 .refresh-btn {
-  background: #27ae60;
+  background: linear-gradient(135deg, #008C45, #00A859);
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 0.9em;
-  transition: background 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 140, 69, 0.3);
+  margin-top: 0.5rem;
 }
 
 .refresh-btn:hover:not(:disabled) {
-  background: #219653;
+  background: linear-gradient(135deg, #00A859, #00C46B);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 140, 69, 0.4);
 }
 
 .refresh-btn:disabled {
-  background: #7f8c8d;
+  background: #95A5A6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
+/* Main Content */
 main {
   flex: 1;
   padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  margin: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
+/* Footer */
 .App-footer {
-  background: #34495e;
+  background: linear-gradient(90deg, #2C3E50, #34495E);
   color: white;
   text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
+  padding: 1rem;
+  font-size: 0.85rem;
+  margin-top: auto;
+  border-top: 3px solid #008C45;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1rem;
+  }
+  
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .stats {
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+  
+  .stat-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  main {
+    margin: 0.5rem;
+    border-radius: 12px;
+  }
 }

@@ -1,21 +1,25 @@
 .organigramm {
-  padding: 20px;
+  padding: 1.5rem;
+  background: transparent;
 }
 
 .loading {
   text-align: center;
-  padding: 50px;
-  color: #7f8c8d;
+  padding: 3rem;
+  color: #2C3E50;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  margin: 1rem;
 }
 
 .spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+  border: 3px solid #F4F5F0;
+  border-top: 3px solid #008C45;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 2s linear infinite;
-  margin: 0 auto 20px auto;
+  width: 35px;
+  height: 35px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
 }
 
 @keyframes spin {
@@ -25,20 +29,22 @@
 
 .error {
   text-align: center;
-  padding: 40px;
-  background: #ffeaea;
-  border: 2px solid #e74c3c;
-  border-radius: 10px;
-  margin: 20px;
-  color: #c0392b;
+  padding: 2rem;
+  background: linear-gradient(135deg, #FFE5E5, #FFCCCC);
+  border: 2px solid #CD212A;
+  border-radius: 12px;
+  margin: 1rem;
+  color: #C0392B;
+  box-shadow: 0 4px 12px rgba(205, 33, 42, 0.1);
 }
 
 .no-data {
   text-align: center;
-  padding: 40px;
-  background: #f8f9fa;
-  border: 2px solid #bdc3c7;
-  border-radius: 10px;
-  margin: 20px;
-  color: #7f8c8d;
+  padding: 2rem;
+  background: linear-gradient(135deg, #F8F9FA, #ECF0F1);
+  border: 2px solid #BDC3C7;
+  border-radius: 12px;
+  margin: 1rem;
+  color: #7F8C8D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }

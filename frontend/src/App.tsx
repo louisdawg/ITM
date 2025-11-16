@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🇮🇹 Italienisches Heer</h1>
+        <h1>Esercito Italiano (Italienisches Heer)</h1>
         <p>Dienstgradhierarchie - Organigramm</p>
         
         {stats && (
@@ -55,7 +55,7 @@ function App() {
                 {stat.rang_kategorie}: {stat.anzahl}
               </span>
             ))}
-            <span className="stat-item total">Total: {totalDienstgrade}</span>
+            <span className="stat-item total">Gesamt: {totalDienstgrade}</span>
           </div>
         )}
         
@@ -64,7 +64,7 @@ function App() {
           className="refresh-btn"
           disabled={loading}
         >
-          {loading ? 'Lädt...' : '⟳ Aktualisieren'}
+          {loading ? '🔄 Lädt...' : '⟳ Aktualisieren'}
         </button>
       </header>
 
@@ -77,7 +77,7 @@ function App() {
       </main>
 
       <footer className="App-footer">
-        <p>React + TypeScript + Vite mit PostgreSQL Backend</p>
+        <p>Esercito Italiano - Dienstgrad Organigramm</p>
       </footer>
     </div>
   );
