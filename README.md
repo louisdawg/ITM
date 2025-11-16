@@ -99,10 +99,10 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 
 ### 1\. Repository klonen
 
-bash
-
-git clone https://github.com/louisdawg/ITM.git
-cd ITM
+    ```bash
+    git clone https://github.com/louisdawg/ITM.git
+    cd ITM
+    ```
 
 ### 2\. Datenbank einrichten
 
@@ -117,23 +117,23 @@ cd ITM
 
 ### 3\. Backend einrichten
 
-bash
-
+```bash
 cd backend
 npm install
+```
 
 ### 4\. Frontend einrichten
 
-bash
-
+```bash
 cd frontend
 npm install
+```
 
 ### 5\. Umgebungsvariablen konfigurieren
 
 Backend `server.js` anpassen:
 
-javascript
+```javascript
 
 const pool \= new Pool({
     user: 'postgres',
@@ -142,13 +142,14 @@ const pool \= new Pool({
     password: 'dein\_postgres\_passwort', // Hier anpassen!
     port: 5432,
 });
+```
 
 💻 Verwendung
 -------------
 
 ### Entwicklung starten
 
-bash
+```bash
 
 \# Terminal 1 - Backend starten
 cd backend
@@ -157,11 +158,11 @@ npm run dev
 \# Terminal 2 - Frontend starten 
 cd frontend
 npm run dev
+```
 
 ### Produktions-Build
 
-bash
-
+```bash
 \# Frontend builden
 cd frontend
 npm run build
@@ -169,6 +170,7 @@ npm run build
 \# Backend starten
 cd backend
 npm start
+```
 
 ### URLs
 
@@ -180,7 +182,7 @@ npm start
 📁 Projektstruktur
 ------------------
 
-text
+```
 
 ITM/
 ├── backend/
@@ -196,6 +198,7 @@ ITM/
 │   ├── public/            # Statische Assets
 │   └── package.json       # Frontend Abhängigkeiten
 └── README.md
+```
 
 🔌 API Endpoints
 ----------------
@@ -204,7 +207,7 @@ ITM/
 
 Health Check für Backend und Datenbank
 
-json
+```json
 
 {
   "success": true,
@@ -212,11 +215,13 @@ json
   "timestamp": "2023-11-15T10:30:00.000Z"
 }
 
+```
+
 ### GET /api/hierarchie
 
 Hierarchische Dienstgrad-Daten
 
-json
+```json
 
 {
   "success": true,
@@ -232,11 +237,13 @@ json
   "count": 24
 }
 
+```
+
 ### GET /api/statistiken
 
 Statistiken nach Dienstgrad-Kategorien
 
-json
+```json
 
 {
   "success": true,
@@ -247,34 +254,35 @@ json
     }
   \]
 }
+```
 
 🛠️ Entwicklung
 ---------------
 
 ### Backend Development
 
-bash
-
+```bash
 cd backend
 npm run dev  \# Startet mit nodemon (Auto-Reload)
+```
 
 ### Frontend Development
 
-bash
-
+```bash
 cd frontend  
 npm run dev  \# Vite Development Server
+```
 
 ### Code Quality
 
-bash
-
+```bash
 \# Frontend Linting
 cd frontend
 npm run lint
 
 \# TypeScript Compilation
 npm run build
+```
 
 🤝 Mitwirken
 ------------
