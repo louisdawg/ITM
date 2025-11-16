@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { hierarchieAPI } from './services/api';
 import type { Dienstgrad, Statistik } from './types';
 import Organigramm from './components/Organigramm';
