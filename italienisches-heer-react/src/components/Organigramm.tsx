@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dienstgrad } from '../types';
+import type { Dienstgrad } from '../types';
 import Level from './Level';
 import './Organigramm.css';
 
@@ -37,7 +37,6 @@ const Organigramm: React.FC<OrganigrammProps> = ({ data, loading, error }) => {
     );
   }
 
-  // Gruppiere Daten nach Level
   const levels: { [key: number]: Dienstgrad[] } = {};
   data.forEach(dienstgrad => {
     if (!levels[dienstgrad.level]) {

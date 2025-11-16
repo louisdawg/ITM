@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dienstgrad, Statistik, ApiResponse } from '../types';
+import type { Dienstgrad, Statistik, ApiResponse } from '../types';
 
 const API_BASE_URL = 'http://localhost:5000/api';
 

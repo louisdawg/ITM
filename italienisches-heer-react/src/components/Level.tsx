@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dienstgrad } from '../types';
+import type { Dienstgrad } from '../types';
 import DienstgradCard from './DienstgradCard';
 import './Level.css';
 

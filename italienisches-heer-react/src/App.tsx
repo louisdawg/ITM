@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { hierarchieAPI } from './services/api';
-import { Dienstgrad, Statistik } from './types';
+import type { Dienstgrad, Statistik } from './types';
 import Organigramm from './components/Organigramm';
 import './App.css';
 
