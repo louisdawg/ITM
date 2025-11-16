@@ -11,18 +11,33 @@ app.use(express.json());
 
 const pool = new Pool({
     user: 'postgres',
-    host: 'localhost',
+    host: 'localhost', 
     database: 'italienisches_heer',
-    password: '1234',
+    password: '123',
     port: 5432,
 });
 
-pool.connect((err, client, release) => {
-    if (err) {
-        console.error('❌ PostgreSQL Verbindungsfehler:', err.stack);
-    } else {
-        console.log('✅ Erfolgreich mit PostgreSQL verbunden');
-        release();
+pool.on('connect', () => {
+    console.log('✅ Erfolgreich mit PostgreSQL verbunden');
+});
+
+pool.on('error', (err) => {
+    console.error('❌ PostgreSQL Verbindungsfehler:', err);
+});
+
+app.get('/api/health', async (req, res) => {
+    try {
+        await pool.query('SELECT 1');
+        res.json({
+            success: true,
+            message: 'Backend und PostgreSQL sind online',
+            timestamp: new Date().toISOString()
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: 'PostgreSQL nicht erreichbar'
+        });
     }
 });
 
@@ -61,61 +76,18 @@ app.get('/api/hierarchie', async (req, res) => {
         `;
 
         const result = await pool.query(query);
+        
         res.json({
             success: true,
             data: result.rows,
             count: result.rowCount
         });
+        
     } catch (error) {
         console.error('❌ Fehler bei hierarchischer Abfrage:', error);
         res.status(500).json({
             success: false,
             error: error.message
-        });
-    }
-});
-
-app.get('/api/statistiken', async (req, res) => {
-    try {
-        const result = await pool.query(`
-            SELECT 
-                rang_kategorie,
-                COUNT(*) as anzahl
-            FROM dienstgrade 
-            GROUP BY rang_kategorie 
-            ORDER BY 
-                CASE rang_kategorie 
-                    WHEN 'Generale' THEN 1
-                    WHEN 'Offiziere' THEN 2
-                    WHEN 'Unteroffiziere' THEN 3
-                    WHEN 'Mannschaften' THEN 4
-                END
-        `);
-        res.json({
-            success: true,
-            data: result.rows
-        });
-    } catch (error) {
-        console.error('❌ Fehler bei Statistik-Abfrage:', error);
-        res.status(500).json({
-            success: false,
-            error: error.message
-        });
-    }
-});
-
-app.get('/api/health', async (req, res) => {
-    try {
-        await pool.query('SELECT 1');
-        res.json({
-            success: true,
-            message: 'Backend und Datenbank sind online',
-            timestamp: new Date().toISOString()
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: 'Datenbank nicht erreichbar'
         });
     }
 });
