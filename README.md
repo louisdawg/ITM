@@ -1,8 +1,6 @@
 Esercito Italiano - Dienstgrad Organigramm
 ==========================================
 
-[https://img.shields.io/badge/React-18.2.0-blue](https://img.shields.io/badge/React-18.2.0-blue)[https://img.shields.io/badge/TypeScript-5.0.2-blue](https://img.shields.io/badge/TypeScript-5.0.2-blue)[https://img.shields.io/badge/PostgreSQL-15+-blue](https://img.shields.io/badge/PostgreSQL-15+-blue)[https://img.shields.io/badge/Node.js-18+-green](https://img.shields.io/badge/Node.js-18+-green)
-
 Eine moderne Webanwendung zur Visualisierung der Dienstgradhierarchie des italienischen Heeres. Das Projekt zeigt ein interaktives Organigramm mit PostgreSQL Backend und React Frontend.
 
 📋 Inhalt
@@ -34,29 +32,28 @@ Eine moderne Webanwendung zur Visualisierung der Dienstgradhierarchie des italie
 
 Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 
-*   **Backend**: Node.js/Express Server mit PostgreSQL Datenbank
+*   Backend: Node.js/Express Server mit PostgreSQL Datenbank
     
-*   **Frontend**: React mit TypeScript und modernem UI-Design
+*   Frontend: React mit TypeScript und modernem UI-Design
     
-*   **Datenbank**: PostgreSQL mit hierarchischen Abfragen (WITH RECURSIVE)
+*   Datenbank: PostgreSQL mit hierarchischen Abfragen (WITH RECURSIVE)
     
-*   **Design**: Italienisches Farbschema und responsive Benutzeroberfläche
-    
+*   Design: Italienisches Farbschema und responsive Benutzeroberfläche
 
 ✨ Funktionen
 ------------
 
-*   **📊 Interaktives Organigramm** - Hierarchische Darstellung aller Dienstgrade
+*   📊 Interaktives Organigramm - Hierarchische Darstellung aller Dienstgrade
     
-*   **🎨 Italienisches Design** - Farbgebung inspiriert von der italienischen Flagge
+*   🎨 Italienisches Design - Farbgebung inspiriert von der italienischen Flagge
     
-*   **📱 Responsive Layout** - Optimiert für Desktop, Tablet und Mobile
+*   📱 Responsive Layout - Optimiert für Desktop, Tablet und Mobile
     
-*   **🔄 Echtzeit-Daten** - Live-Abfrage der PostgreSQL Datenbank
+*   🔄 Echtzeit-Daten - Live-Abfrage der PostgreSQL Datenbank
     
-*   **📈 Statistiken** - Übersicht der Dienstgrade nach Kategorien
+*   📈 Statistiken - Übersicht der Dienstgrade nach Kategorien
     
-*   **⚡ Moderne Technologien** - React, TypeScript, Vite, Express
+*   ⚡ Moderne Technologien - React, TypeScript, Vite, Express
     
 
 🛠️ Technologien
@@ -64,28 +61,28 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 
 ### Backend
 
-*   **Node.js** - JavaScript Runtime
+*   Node.js - JavaScript Runtime
     
-*   **Express.js** - Web Framework
+*   Express.js - Web Framework
     
-*   **PostgreSQL** - Datenbank
+*   PostgreSQL - Datenbank
     
-*   **pg** - PostgreSQL Client für Node.js
+*   pg - PostgreSQL Client für Node.js
     
-*   **CORS** - Cross-Origin Resource Sharing
+*   CORS - Cross-Origin Resource Sharing
     
 
 ### Frontend
 
-*   **React 18** - UI Library
+*   React 18 - UI Library
     
-*   **TypeScript** - Typensichere Entwicklung
+*   TypeScript - Typensichere Entwicklung
     
-*   **Vite** - Build Tool und Development Server
+*   Vite - Build Tool und Development Server
     
-*   **Axios** - HTTP Client
+*   Axios - HTTP Client
     
-*   **CSS3** - Moderne Styling mit Grid und Flexbox
+*   CSS3 - Moderne Styling mit Grid und Flexbox
     
 
 🚀 Installation
@@ -104,7 +101,8 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/username/italienisches-heer.git  cd italienisches-heer   `
+git clone https://github.com/louisdawg/ITM.git
+cd ITM
 
 ### 2\. Datenbank einrichten
 
@@ -112,30 +110,38 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
     
 2.  pgAdmin4 öffnen
     
-3.  Neue Datenbank erstellen: italienisches\_heer
+3.  Neue Datenbank erstellen: `italienisches_heer`
     
-4.  SQL Query aus backend/database.sql ausführen
+4.  SQL Query `schema.sql` ausführen
     
 
 ### 3\. Backend einrichten
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd backend  npm install   `
+cd backend
+npm install
 
 ### 4\. Frontend einrichten
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd frontend  npm install   `
+cd frontend
+npm install
 
 ### 5\. Umgebungsvariablen konfigurieren
 
-Backend server.js anpassen:
+Backend `server.js` anpassen:
 
 javascript
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   const pool = new Pool({      user: 'postgres',      host: 'localhost',       database: 'italienisches_heer',      password: 'dein_postgres_passwort', // Hier anpassen!      port: 5432,  });   `
+const pool \= new Pool({
+    user: 'postgres',
+    host: 'localhost', 
+    database: 'italienisches\_heer',
+    password: 'dein\_postgres\_passwort', // Hier anpassen!
+    port: 5432,
+});
 
 💻 Verwendung
 -------------
@@ -144,19 +150,31 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Terminal 1 - Backend starten  cd backend  npm run dev  # Terminal 2 - Frontend starten    cd frontend  npm run dev   `
+\# Terminal 1 - Backend starten
+cd backend
+npm run dev
+
+\# Terminal 2 - Frontend starten 
+cd frontend
+npm run dev
 
 ### Produktions-Build
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Frontend builden  cd frontend  npm run build  # Backend starten  cd backend  npm start   `
+\# Frontend builden
+cd frontend
+npm run build
+
+\# Backend starten
+cd backend
+npm start
 
 ### URLs
 
-*   **Frontend**: [http://localhost:3000](http://localhost:3000/)
+*   Frontend: [http://localhost:3000](http://localhost:3000/)
     
-*   **Backend API**: [http://localhost:5000/api](http://localhost:5000/api)
+*   Backend API: [http://localhost:5000/api](http://localhost:5000/api)
     
 
 📁 Projektstruktur
@@ -164,7 +182,20 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 text
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ITM/  ├── backend/  │   ├── server.js          # Express Server  │   ├── package.json       # Backend Abhängigkeiten  │   └── database.sql       # Datenbank Schema & Daten  ├── frontend/  │   ├── src/  │   │   ├── components/    # React Components  │   │   ├── services/      # API Services  │   │   ├── types/         # TypeScript Definitionen  │   │   └── App.tsx        # Hauptkomponente  │   ├── public/            # Statische Assets  │   └── package.json       # Frontend Abhängigkeiten  └── README.md   `
+ITM/
+├── backend/
+│   ├── server.js          # Express Server
+│   ├── package.json       # Backend Abhängigkeiten
+│   └── database.sql       # Datenbank Schema & Daten
+├── frontend/
+│   ├── src/
+│   │   ├── components/    # React Components
+│   │   ├── services/      # API Services
+│   │   ├── types/         # TypeScript Definitionen
+│   │   └── App.tsx        # Hauptkomponente
+│   ├── public/            # Statische Assets
+│   └── package.json       # Frontend Abhängigkeiten
+└── README.md
 
 🔌 API Endpoints
 ----------------
@@ -175,7 +206,11 @@ Health Check für Backend und Datenbank
 
 json
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "success": true,    "message": "Backend und PostgreSQL sind online",    "timestamp": "2023-11-15T10:30:00.000Z"  }   `
+{
+  "success": true,
+  "message": "Backend und PostgreSQL sind online",
+  "timestamp": "2023-11-15T10:30:00.000Z"
+}
 
 ### GET /api/hierarchie
 
@@ -183,7 +218,19 @@ Hierarchische Dienstgrad-Daten
 
 json
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "success": true,    "data": [      {        "id": 1,        "rang_name": "Generale",        "rang_kategorie": "Generale",        "rang_code": "OF-9",        "level": 0      }    ],    "count": 24  }   `
+{
+  "success": true,
+  "data": \[
+    {
+      "id": 1,
+      "rang\_name": "Generale",
+      "rang\_kategorie": "Generale",
+      "rang\_code": "OF-9",
+      "level": 0
+    }
+  \],
+  "count": 24
+}
 
 ### GET /api/statistiken
 
@@ -191,7 +238,15 @@ Statistiken nach Dienstgrad-Kategorien
 
 json
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "success": true,    "data": [      {        "rang_kategorie": "Generale",        "anzahl": 4      }    ]  }   `
+{
+  "success": true,
+  "data": \[
+    {
+      "rang\_kategorie": "Generale",
+      "anzahl": 4
+    }
+  \]
+}
 
 🛠️ Entwicklung
 ---------------
@@ -200,19 +255,26 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd backend  npm run dev  # Startet mit nodemon (Auto-Reload)   `
+cd backend
+npm run dev  \# Startet mit nodemon (Auto-Reload)
 
 ### Frontend Development
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd frontend    npm run dev  # Vite Development Server   `
+cd frontend  
+npm run dev  \# Vite Development Server
 
 ### Code Quality
 
 bash
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Frontend Linting  cd frontend  npm run lint  # TypeScript Compilation  npm run build   `
+\# Frontend Linting
+cd frontend
+npm run lint
+
+\# TypeScript Compilation
+npm run build
 
 🤝 Mitwirken
 ------------
@@ -221,11 +283,11 @@ Beiträge sind willkommen! So können Sie mitwirken:
 
 1.  Repository forken
     
-2.  Feature-Branch erstellen (git checkout -b feature/AmazingFeature)
+2.  Feature-Branch erstellen (`git checkout -b feature/AmazingFeature`)
     
-3.  Änderungen committen (git commit -m 'Add some AmazingFeature')
+3.  Änderungen committen (`git commit -m 'Add some AmazingFeature'`)
     
-4.  Branch pushen (git push origin feature/AmazingFeature)
+4.  Branch pushen (`git push origin feature/AmazingFeature`)
     
 5.  Pull Request erstellen
     
@@ -249,18 +311,6 @@ Dieses Projekt ist für Bildungszwecke im Rahmen des ITM-Unterrichts erstellt wo
 👥 Autor
 --------
 
-**Dein Name**
-
-*   GitHub: [@username](https://github.com/username)
+*   Louis und Emil
     
-*   Projekt-Link: [https://github.com/username/italienisches-heer](https://github.com/username/italienisches-heer)
-    
-
-🙏 Danksagung
--------------
-
-*   Italienisches Heer für die Dienstgrad-Informationen
-    
-*   React und PostgreSQL Communities
-    
-*   Vite Team für das exzellente Build-Tool
+*   Projekt-Link: [https://github.com/louisdawg/ITM](https://github.com/louisdawg/ITM)
