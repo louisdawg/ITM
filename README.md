@@ -99,10 +99,10 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 
 ### 1\. Repository klonen
 
-    ```bash
-    git clone https://github.com/louisdawg/ITM.git
-    cd ITM
-    ```
+```bash
+git clone https://github.com/louisdawg/ITM.git
+cd ITM
+```
 
 ### 2\. Datenbank einrichten
 
@@ -135,11 +135,11 @@ Backend `server.js` anpassen:
 
 ```javascript
 
-const pool \= new Pool({
+const pool = new Pool({
     user: 'postgres',
     host: 'localhost', 
     database: 'italienisches\_heer',
-    password: 'dein\_postgres\_passwort', // Hier anpassen!
+    password: '123', // Hier ändern
     port: 5432,
 });
 ```
@@ -225,15 +225,15 @@ Hierarchische Dienstgrad-Daten
 
 {
   "success": true,
-  "data": \[
+  "data": [
     {
       "id": 1,
-      "rang\_name": "Generale",
-      "rang\_kategorie": "Generale",
-      "rang\_code": "OF-9",
+      "rang_name": "Generale",
+      "rang_kategorie": "Generale",
+      "rang_code": "OF-9",
       "level": 0
     }
-  \],
+  ],
   "count": 24
 }
 
@@ -247,12 +247,12 @@ Statistiken nach Dienstgrad-Kategorien
 
 {
   "success": true,
-  "data": \[
+  "data": [
     {
-      "rang\_kategorie": "Generale",
+      "rang_kategorie": "Generale",
       "anzahl": 4
     }
-  \]
+  ]
 }
 ```
 
