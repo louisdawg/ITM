@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { hierarchieAPI } from './services/api';
+import { Dienstgrad, Statistik } from './types';
+import Organigramm from './components/Organigramm';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [hierarchie, setHierarchie] = useState<Dienstgrad[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [stats, setStats] = useState<Statistik[] | null>(null);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      const [hierarchieResponse, statsResponse] = await Promise.all([
+        hierarchieAPI.getHierarchie(),
+        hierarchieAPI.getStatistiken()
+      ]);
+
+      if (hierarchieResponse.success) {
+        setHierarchie(hierarchieResponse.data);
+      }
+
+      if (statsResponse.success) {
+        setStats(statsResponse.data);
+      }
+
+    } catch (err: any) {
+      setError(err.response?.data?.error || 'Fehler beim Laden der Daten');
+      console.error('Fehler:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const totalDienstgrade = hierarchie.length;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="App">
+      <header className="App-header">
+        <h1>🇮🇹 Italienisches Heer</h1>
+        <p>Dienstgradhierarchie - Organigramm</p>
+        
+        {stats && (
+          <div className="stats">
+            {stats.map(stat => (
+              <span key={stat.rang_kategorie} className="stat-item">
+                {stat.rang_kategorie}: {stat.anzahl}
+              </span>
+            ))}
+            <span className="stat-item total">Total: {totalDienstgrade}</span>
+          </div>
+        )}
+        
+        <button 
+          onClick={loadData} 
+          className="refresh-btn"
+          disabled={loading}
+        >
+          {loading ? 'Lädt...' : '⟳ Aktualisieren'}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </header>
+
+      <main>
+        <Organigramm 
+          data={hierarchie} 
+          loading={loading} 
+          error={error} 
+        />
+      </main>
+
+      <footer className="App-footer">
+        <p>React + TypeScript + Vite mit PostgreSQL Backend</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;

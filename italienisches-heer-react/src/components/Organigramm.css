@@ -1,0 +1,44 @@
+.organigramm {
+  padding: 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  color: #7f8c8d;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  background: #ffeaea;
+  border: 2px solid #e74c3c;
+  border-radius: 10px;
+  margin: 20px;
+  color: #c0392b;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+  border: 2px solid #bdc3c7;
+  border-radius: 10px;
+  margin: 20px;
+  color: #7f8c8d;
+}
