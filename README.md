@@ -100,7 +100,7 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 ### 1\. Repository klonen
 
 ```bash
-git clone https://github.com/louisdawg/ITM.git
+git clone https://github.com/louisdawg/ITM
 cd ITM
 ```
 
@@ -138,8 +138,8 @@ Backend `server.js` anpassen:
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost', 
-    database: 'italienisches\_heer',
-    password: '123', // Hier ändern
+    database: 'italienisches_heer',
+    password: '123', // Hier bitte ändern
     port: 5432,
 });
 ```
@@ -188,7 +188,7 @@ ITM/
 ├── backend/
 │   ├── server.js          # Express Server
 │   ├── package.json       # Backend Abhängigkeiten
-│   └── database.sql       # Datenbank Schema & Daten
+│   └── schema.sql       # Datenbank Schema & Daten
 ├── frontend/
 │   ├── src/
 │   │   ├── components/    # React Components
