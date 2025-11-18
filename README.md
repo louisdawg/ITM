@@ -77,7 +77,6 @@ psql -U postgres -c "CREATE DATABASE italienisches_heer;" && psql -U postgres -d
 ```bash
 cd backend
 npm install
-node server.js
 ```
 
 ### 4. Frontend einrichten
@@ -111,11 +110,11 @@ const pool = new Pool({
 
 # Terminal 1 - Backend starten
 cd backend
-npm run dev
+node server.js
 
 # Terminal 2 - Frontend starten 
 cd frontend
-npm run dev
+npm run build
 ```
 
 ### Produktions-Build
