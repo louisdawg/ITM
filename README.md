@@ -66,13 +66,10 @@ cd ITM
 
 ### 2. Datenbank einrichten
 
-1.  PostgreSQL starten
-    
-2.  pgAdmin4 öffnen
-    
-3.  Neue Datenbank erstellen: `italienisches_heer`
-    
-4.  SQL Query `schema.sql` ausführen
+# Datenbank erstellen und Schema importieren
+```bash
+psql -U postgres -c "CREATE DATABASE italienisches_heer;" && psql -U postgres -d italienisches_heer -f schema.sql
+```
     
 
 ### 3. Backend einrichten
@@ -80,6 +77,7 @@ cd ITM
 ```bash
 cd backend
 npm install
+node server.js
 ```
 
 ### 4. Frontend einrichten
