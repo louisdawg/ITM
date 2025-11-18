@@ -3,30 +3,6 @@ Esercito Italiano - Dienstgrad Organigramm
 
 Eine moderne Webanwendung zur Visualisierung der Dienstgradhierarchie des italienischen Heeres. Das Projekt zeigt ein interaktives Organigramm mit PostgreSQL Backend und React Frontend.
 
-📋 Inhalt
----------
-
-*   Über das Projekt
-    
-*   Funktionen
-    
-*   Technologien
-    
-*   Installation
-    
-*   Verwendung
-    
-*   Projektstruktur
-    
-*   API Endpoints
-    
-*   Entwicklung
-    
-*   Mitwirken
-    
-*   Lizenz
-    
-
 🎯 Über das Projekt
 -------------------
 
@@ -39,22 +15,6 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 *   Datenbank: PostgreSQL mit hierarchischen Abfragen (WITH RECURSIVE)
     
 *   Design: Italienisches Farbschema und responsive Benutzeroberfläche
-
-✨ Funktionen
-------------
-
-*   📊 Interaktives Organigramm - Hierarchische Darstellung aller Dienstgrade
-    
-*   🎨 Italienisches Design - Farbgebung inspiriert von der italienischen Flagge
-    
-*   📱 Responsive Layout - Optimiert für Desktop, Tablet und Mobile
-    
-*   🔄 Echtzeit-Daten - Live-Abfrage der PostgreSQL Datenbank
-    
-*   📈 Statistiken - Übersicht der Dienstgrade nach Kategorien
-    
-*   ⚡ Moderne Technologien - React, TypeScript, Vite, Express
-    
 
 🛠️ Technologien
 ----------------
@@ -284,21 +244,6 @@ npm run lint
 npm run build
 ```
 
-🤝 Mitwirken
-------------
-
-Beiträge sind willkommen! So können Sie mitwirken:
-
-1.  Repository forken
-    
-2.  Feature-Branch erstellen (`git checkout -b feature/AmazingFeature`)
-    
-3.  Änderungen committen (`git commit -m 'Add some AmazingFeature'`)
-    
-4.  Branch pushen (`git push origin feature/AmazingFeature`)
-    
-5.  Pull Request erstellen
-    
 
 ### Coding Standards
 
