@@ -57,14 +57,14 @@ Dieses ITM-Projekt demonstriert eine vollständige Full-Stack Webanwendung mit:
 *   pgAdmin 4 (empfohlen)
     
 
-### 1\. Repository klonen
+### 1. Repository klonen
 
 ```bash
 git clone https://github.com/louisdawg/ITM
 cd ITM
 ```
 
-### 2\. Datenbank einrichten
+### 2. Datenbank einrichten
 
 1.  PostgreSQL starten
     
@@ -75,21 +75,21 @@ cd ITM
 4.  SQL Query `schema.sql` ausführen
     
 
-### 3\. Backend einrichten
+### 3. Backend einrichten
 
 ```bash
 cd backend
 npm install
 ```
 
-### 4\. Frontend einrichten
+### 4. Frontend einrichten
 
 ```bash
 cd frontend
 npm install
 ```
 
-### 5\. Umgebungsvariablen konfigurieren
+### 5. Umgebungsvariablen konfigurieren
 
 Backend `server.js` anpassen:
 
@@ -111,11 +111,11 @@ const pool = new Pool({
 
 ```bash
 
-\# Terminal 1 - Backend starten
+# Terminal 1 - Backend starten
 cd backend
 npm run dev
 
-\# Terminal 2 - Frontend starten 
+# Terminal 2 - Frontend starten 
 cd frontend
 npm run dev
 ```
@@ -123,11 +123,11 @@ npm run dev
 ### Produktions-Build
 
 ```bash
-\# Frontend builden
+# Frontend builden
 cd frontend
 npm run build
 
-\# Backend starten
+# Backend starten
 cd backend
 npm start
 ```
