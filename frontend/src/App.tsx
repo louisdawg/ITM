@@ -83,28 +83,28 @@ function App() {
 
   const positionNodes = (
     nodes: TreeNode[],
-    startY: number = 100,
+    startY: number = 120,
     level: number = 0
   ) => {
-    const levelHeight = 120;
-    let x = 100;
+    const levelHeight = 180;
+    let x = 150;
 
     nodes.forEach((node) => {
       node.x = x;
       node.y = startY + level * levelHeight;
-      node.width = 180;
-      node.height = 70;
+      node.width = 280;
+      node.height = 100;
 
       if (node.children.length > 0) {
-        const totalChildWidth = (node.children.length - 1) * 200;
+        const totalChildWidth = (node.children.length - 1) * 320;
         const childStartX = x - totalChildWidth / 2;
         node.children.forEach((child, index) => {
-          child.x = childStartX + index * 200;
+          child.x = childStartX + index * 320;
         });
         positionNodes(node.children, startY, level + 1);
       }
 
-      x += 250;
+      x += 350;
     });
   };
 
@@ -131,7 +131,7 @@ function App() {
                 key={`${node.id}-${child.id}`}
                 x1={node.x + node.width / 2}
                 y1={node.y + node.height}
-                x2={child.x + (child.width || 180) / 2}
+                x2={child.x + (child.width || 280) / 2}
                 y2={child.y}
                 stroke="#2C3E50"
                 strokeWidth="2"
@@ -147,6 +147,7 @@ function App() {
     drawConnections(treeData);
     return connections;
   };
+
   const renderNodes = (nodes: TreeNode[]) => {
     return nodes.map((node) => (
       <g key={node.id}>
@@ -155,33 +156,33 @@ function App() {
           y={node.y}
           width={node.width}
           height={node.height}
-          rx="8"
-          ry="8"
+          rx="12"
+          ry="12"
           fill={getNodeColor(node.level)}
           stroke={selectedUnit?.id === node.id ? "#CD212A" : "#2C3E50"}
-          strokeWidth={selectedUnit?.id === node.id ? "3" : "2"}
+          strokeWidth={selectedUnit?.id === node.id ? "4" : "2"}
           className="org-node"
           cursor="pointer"
           onClick={() => loadPersonnel(node.id)}
         />
         <text
-          x={node.x! + (node.width || 180) / 2}
-          y={node.y! + 20}
+          x={node.x! + (node.width || 280) / 2}
+          y={node.y! + 30}
           textAnchor="middle"
           fill="#2C3E50"
-          fontSize="10"
+          fontSize="14"
           fontWeight="600"
           className="org-node-text"
         >
-          {truncateText(node.name, 20)}
+          {truncateText(node.name, 30)}
         </text>
 
         <text
-          x={node.x! + (node.width || 180) / 2}
-          y={node.y! + 35}
+          x={node.x! + (node.width || 280) / 2}
+          y={node.y! + 55}
           textAnchor="middle"
           fill="#7F8C8D"
-          fontSize="8"
+          fontSize="12"
           fontWeight="500"
           className="org-node-text"
         >
@@ -189,17 +190,38 @@ function App() {
         </text>
 
         <text
-          x={node.x! + (node.width || 180) / 2}
-          y={node.y! + 50}
+          x={node.x! + (node.width || 280) / 2}
+          y={node.y! + 80}
           textAnchor="middle"
           fill="#008C45"
-          fontSize="7"
+          fontSize="11"
           fontWeight="600"
           className="org-node-text"
         >
-          👥 {node.personnel_count || 0}
+          👥 {node.personnel_count || 0} Personen
         </text>
-
+        <rect
+          x={node.x! + 10}
+          y={node.y! - 15}
+          width="60"
+          height="20"
+          rx="10"
+          ry="10"
+          fill={getNodeColor(node.level)}
+          stroke="#2C3E50"
+          strokeWidth="1"
+        />
+        <text
+          x={node.x! + 40}
+          y={node.y! - 2}
+          textAnchor="middle"
+          fill="#2C3E50"
+          fontSize="10"
+          fontWeight="700"
+          className="org-node-text"
+        >
+          Ebene {node.level}
+        </text>
         {node.children.length > 0 && renderNodes(node.children)}
       </g>
     ));
@@ -265,7 +287,6 @@ function App() {
 
     URL.revokeObjectURL(url);
   };
-
   const groupPersonnelByRank = (personnelList: Personnel[]) => {
     const grouped: { [key: string]: Personnel[] } = {
       Offiziere: [],
@@ -342,8 +363,8 @@ function App() {
                 <svg
                   ref={svgRef}
                   width="100%"
-                  height="800"
-                  viewBox="0 0 2000 800"
+                  height="1200"
+                  viewBox="0 0 2400 1200"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
@@ -359,11 +380,11 @@ function App() {
                     </marker>
                     <filter id="dropShadow">
                       <feDropShadow
-                        dx="1"
-                        dy="1"
-                        stdDeviation="2"
+                        dx="2"
+                        dy="2"
+                        stdDeviation="3"
                         floodColor="#000000"
-                        floodOpacity="0.2"
+                        floodOpacity="0.3"
                       />
                     </filter>
                   </defs>
@@ -420,6 +441,9 @@ function App() {
                     <span className="unit-type">{selectedUnit.type}</span>
                     <span className="unit-location">
                       📍 {selectedUnit.location}
+                    </span>
+                    <span className="unit-personnel">
+                      👥 {selectedUnit.personnel_count || 0} Personen
                     </span>
                   </div>
                 )}
