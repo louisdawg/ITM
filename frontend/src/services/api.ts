@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = "http://localhost:5000/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -37,15 +37,19 @@ export interface Branch {
 }
 
 export const apiService = {
-  getOrganisation: () => api.get<{
-    error: string; success: boolean; data: Unit[] 
-}>('/organisation'),
-  getUnits: () => api.get<{ success: boolean; data: Unit[] }>('/units'),
-  getBranches: () => api.get<{ success: boolean; data: Branch[] }>('/branches'),
-  getPersonnel: (unitId: number) => api.get<{ success: boolean; data: Personnel[] }>(`/personnel/${unitId}`),
-  getRanks: () => api.get<{ success: boolean; data: any[] }>('/ranks'),
-  getHealth: () => api.get('/health'),
-  getTest: () => api.get('/test'),
+  getOrganisation: () =>
+    api.get<{
+      error: string;
+      success: boolean;
+      data: Unit[];
+    }>("/organisation"),
+  getUnits: () => api.get<{ success: boolean; data: Unit[] }>("/units"),
+  getBranches: () => api.get<{ success: boolean; data: Branch[] }>("/branches"),
+  getPersonnel: (unitId: number) =>
+    api.get<{ success: boolean; data: Personnel[] }>(`/personnel/${unitId}`),
+  getRanks: () => api.get<{ success: boolean; data: any[] }>("/ranks"),
+  getHealth: () => api.get("/health"),
+  getTest: () => api.get("/test"),
 };
 
 export default api;

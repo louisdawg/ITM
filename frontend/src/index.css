@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #008C45 0%, #F4F5F0 50%, #CD212A 100%);
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #008c45 0%, #f4f5f0 50%, #cd212a 100%);
   min-height: 100vh;
 }
