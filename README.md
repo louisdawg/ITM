@@ -36,14 +36,14 @@ Installation
     Windows PowerShell:
     
     ```powershell
-    # Datenbank erstellen
-    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
+    # Datenbank erstellen, falls psql irgendwo anders gepspeichert ist, Path ändern
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE italienisches_heer;"
     ```
     
     Windows CMD:
     
     ```cmd
-    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE italienisches_heer;"
     ```
     
     Linux/Mac Terminal:
@@ -58,13 +58,14 @@ Installation
     Windows PowerShell:
     
     ```powershell
-    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
+    # Ebenfalls Path ändern, falls anders gespeichert
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d italienisches_heer -f schema.sql
     ```
     
     Windows CMD:
     
     ```cmd
-    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d italienisches_heer -f schema.sql
     ```
     
     Linux/Mac Terminal:
@@ -244,8 +245,8 @@ Um die Datenbank komplett neu aufzusetzen:
 2.  Neu erstellen und befüllen:
     
     ```bash
-    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
-    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE italienisches_heer;"
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d italienisches_heer -f schema.sql
     ```
     
 
@@ -298,8 +299,8 @@ Lösung:
     
     ```bash
     dropdb -U postgres italienisches_heer
-    createdb -U postgres italienisches_heer
-    psql -U postgres -d italienisches_heer -f backend/schema.sql
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE italienisches_heer;"
+    & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d italienisches_heer -f schema.sql
     ```
     
 
