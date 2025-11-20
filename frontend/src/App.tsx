@@ -363,8 +363,8 @@ function App() {
                 <svg
                   ref={svgRef}
                   width="100%"
-                  height="1200"
-                  viewBox="0 0 2400 1200"
+                  height="700"
+                  viewBox="0 0 2400 1900"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
