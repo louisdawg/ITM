@@ -128,11 +128,10 @@ Verwendung
     Frontend ist erreichbar unter `http://localhost:3000`
     ```
 
-Falls ein Problem mit esbuild auftritt, ist es, weil `node_modules` von einem System zu einem anderen System übertragen wurde.
+#### Falls ein Problem mit esbuild auftritt, ist es, weil `node_modules` von einem System zu einem anderen System übertragen wurde.
 
-`Node_modules` löschen und neu installieren:
+##### `Node_modules` löschen und neu installieren:
 
-    ```powershell
     # In das frontend Verzeichnis wechseln
     cd frontend
 
@@ -145,10 +144,9 @@ Falls ein Problem mit esbuild auftritt, ist es, weil `node_modules` von einem Sy
 
     # Dev Server starten
     npm run dev
-    ```
-Oder npm cache leeren und neu installieren
 
-    ```powershell
+###### Oder npm cache leeren und neu installieren
+
     cd frontend
 
     # npm Cache leeren
@@ -164,9 +162,8 @@ Oder npm cache leeren und neu installieren
 
     # Dev Server starten
     npm run dev
-    ```
 
-Mittels Mac/Linux
+#### Mittels Mac/Linux
 
 1. Neuinstallation
 
