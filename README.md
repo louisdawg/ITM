@@ -104,6 +104,12 @@ Installation
     cd frontend
     npm install
     ```
+
+    Möglicherweise muss man auf Windows:
+    ```
+    # Die ExecutionPolicy erlauben
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+    ```
     
 Verwendung
 ----------
