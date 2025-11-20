@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #008C45 0%, #F4F5F0 50%, #CD212A 100%);
+  min-height: 100vh;
+}
+
 .App {
   min-height: 100vh;
   display: flex;
@@ -7,41 +19,335 @@
 .App-header {
   background: linear-gradient(90deg, #008C45 0%, #F4F5F0 50%, #CD212A 100%);
   color: #2C3E50;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 3px solid #2C3E50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.App-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.title-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.export-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.png-btn {
+  background: #2C3E50;
+  color: white;
+}
+
+.svg-btn {
+  background: #27ae60;
+  color: white;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.png-btn:hover {
+  background: #34495E;
+}
+
+.svg-btn:hover {
+  background: #2ecc71;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .organigramm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 2rem;
-  justify-content: center;
-}
-
-.rang-card {
   background: white;
-  border: 2px solid #3498db;
-  border-radius: 10px;
-  padding: 1rem;
-  min-width: 200px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.rang-name {
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.loading, .error {
-  text-align: center;
+  border-radius: 12px;
   padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 1400px;
+}
+
+.org-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #F4F5F0;
+}
+
+.org-title h2 {
+  color: #2C3E50;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.org-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.org-stats span {
+  background: rgba(44, 62, 80, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #2C3E50;
+  font-size: 0.9rem;
+}
+
+.svg-container {
+  border: 2px solid #F4F5F0;
+  border-radius: 8px;
+  background: #fafafa;
+  margin-bottom: 2rem;
+  overflow: auto;
+  min-height: 800px;
+  min-width: 1200px;
+}
+
+/* SVG Node Styling */
+.org-node {
+  transition: all 0.3s ease;
+  filter: url(#dropShadow);
+}
+
+.org-node:hover {
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+  stroke-width: 3px;
+}
+
+.org-node-text {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Legende */
+.legend {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #E8E8E8;
+  text-align: center;
+}
+
+.legend h4 {
+  margin-bottom: 1rem;
+  color: #2C3E50;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.legend-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  justify-items: start;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 2px solid #2C3E50;
+  flex-shrink: 0;
+}
+
+.legend-color.level-0 { background: #FFE5E5; }
+.legend-color.level-1 { background: #FFF5E6; }
+.legend-color.level-2 { background: #E8F5E8; }
+.legend-color.level-3 { background: #E8F4FD; }
+.legend-color.level-4 { background: #F4ECF7; }
+.legend-color.level-5 { background: #FFF0F5; }
+.legend-color.level-6 { background: #F0FFF0; }
+
+/* Loading und Error States */
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: #2C3E50;
   font-size: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #008C45;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  text-align: center;
+  padding: 3rem;
+  background: #FFE5E5;
+  border: 2px solid #CD212A;
+  border-radius: 10px;
+  margin: 2rem;
+  color: #C0392B;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error h3 {
+  margin-bottom: 1rem;
+}
+
+.error button {
+  background: #CD212A;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .organigramm {
+    padding: 1.5rem;
+  }
+  
+  .svg-container {
+    min-height: 700px;
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .export-buttons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .organigramm {
+    padding: 1rem;
+  }
+  
+  .org-title h2 {
+    font-size: 1.4rem;
+  }
+  
+  .legend-items {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    justify-items: center;
+  }
+  
+  .svg-container {
+    min-width: 800px;
+    min-height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    padding: 1rem;
+  }
+  
+  .title-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .export-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .org-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .legend {
+    padding: 1rem;
+  }
+}
+
+/* Scrollbar Styling für SVG Container */
+.svg-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.svg-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.svg-container::-webkit-scrollbar-thumb {
+  background: #008C45;
+  border-radius: 4px;
+}
+
+.svg-container::-webkit-scrollbar-thumb:hover {
+  background: #CD212A;
 }
