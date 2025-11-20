@@ -127,6 +127,121 @@ Verwendung
     
     Frontend ist erreichbar unter `http://localhost:3000`
     ```
+
+Falls ein Problem mit esbuild auftritt, ist es, weil `node_modules` von einem System zu einem anderen System übertragen wurde.
+
+`Node_modules` löschen und neu installieren:
+
+    ```powershell
+    # In das frontend Verzeichnis wechseln
+    cd frontend
+
+    # node_modules und package-lock.json löschen
+    Remove-Item -Recurse -Force node_modules
+    Remove-Item -Force package-lock.json
+
+    # Neu installieren
+    npm install
+
+    # Dev Server starten
+    npm run dev
+    ```
+Oder npm cache leeren und neu installieren
+
+    ```powershell
+    cd frontend
+
+    # npm Cache leeren
+    npm cache clean --force
+
+    # node_modules und lock files löschen
+    Remove-Item -Recurse -Force node_modules
+    Remove-Item -Force package-lock.json
+    Remove-Item -Force yarn.lock -ErrorAction SilentlyContinue
+    
+    # Neu installieren
+    npm install
+
+    # Dev Server starten
+    npm run dev
+    ```
+
+Mittels Mac/Linux
+
+1. Neuinstallation
+
+    ```
+    # In das frontend Verzeichnis wechseln
+    cd frontend
+
+    # node_modules und package-lock.json löschen
+    rm -rf node_modules package-lock.json
+
+    # Neu installieren
+    npm install
+
+    # Dev Server starten
+    npm run dev
+    ```
+
+2. Cache cleaning
+
+   ```
+   cd frontend
+
+    # npm Cache leeren
+    npm cache clean --force
+
+    # Alte Installation entfernen
+    rm -rf node_modules package-lock.json
+
+    # Neu installieren
+    npm install
+
+    # Dev Server starten
+    npm run dev
+   ```
+
+3. Oder Insgesamt (Backend + Frontend)
+
+   ```
+   # Backend neu installieren
+    cd backend
+    rm -rf node_modules package-lock.json
+    npm install
+    cd ..
+
+    # Frontend neu installieren
+    cd frontend
+    rm -rf node_modules package-lock.json
+    npm install
+    cd ..
+
+    # Dev Server starten (in zwei separaten Terminals)
+    # Terminal 1:
+    cd backend && node server.js
+
+    # Terminal 2:
+    cd frontend && npm run dev
+   ```
+
+4. Esbuild Reparatur
+
+   ```
+   cd frontend
+
+    # Alte Installation entfernen
+    rm -rf node_modules package-lock.json
+
+    # Neu installieren
+    npm install
+
+    # Esbuild explizit für die aktuelle Plattform neu installieren
+    npm install --no-save esbuild@latest
+
+    # Dev Server starten
+    npm run dev
+   ```
     
 
 ### Produktions-Build erstellen
