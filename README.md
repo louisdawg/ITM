@@ -36,27 +36,19 @@ Installation
     Windows PowerShell:
     
     ```powershell
-    # PostgreSQL Service starten (falls nicht läuft)
-    Start-Service postgresql-x64-15
-    
     # Datenbank erstellen
-    createdb -U postgres italienisches_heer
+    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
     ```
     
     Windows CMD:
     
     ```cmd
-    net start postgresql-x64-15
-    
-    createdb -U postgres italienisches_heer
+    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
     ```
     
     Linux/Mac Terminal:
     
     ```bash
-    # PostgreSQL Service starten
-    sudo systemctl start postgresql
-    
     # Datenbank erstellen
     sudo -u postgres createdb italienisches_heer
     ```
@@ -66,19 +58,19 @@ Installation
     Windows PowerShell:
     
     ```powershell
-    psql -U postgres -d italienisches_heer -f backend/schema.sql
+    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
     ```
     
     Windows CMD:
     
     ```cmd
-    psql -U postgres -d italienisches\_heer -f backend/schema.sql
+    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
     ```
     
     Linux/Mac Terminal:
     
     ```bash
-    sudo -u postgres psql -d italienisches_heer -f backend/schema.sql
+    sudo -u postgres psql -d italienisches_heer -f schema.sql
     ```
     
 4.  Backend konfigurieren
@@ -252,8 +244,8 @@ Um die Datenbank komplett neu aufzusetzen:
 2.  Neu erstellen und befüllen:
     
     ```bash
-    createdb -U postgres italienisches_heer
-    psql -U postgres -d italienisches_heer -f backend/schema.sql
+    & $psqlPath -U postgres -c "CREATE DATABASE italienisches_heer;"
+    & $psqlPath -U postgres -d italienisches_heer -f schema.sql
     ```
     
 
