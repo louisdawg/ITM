@@ -13,16 +13,24 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'italienisches_heer',
-    password: '123', // Hier ändern bei Bedarf
-    port: 5432, // // Hier ändern bei Bedarf
+    password: '123', // Hier ändern falls anderes Pw
+    port: 5432,
 });
 
-app.get('/api/health', (req, res) => {
-    res.json({ 
-        success: true, 
-        message: 'Server läuft!',
-        timestamp: new Date().toISOString()
-    });
+app.get('/api/health', async (req, res) => {
+    try {
+        await pool.query('SELECT 1');
+        res.json({ 
+            success: true, 
+            message: 'Server & PostgreSQL online!',
+            timestamp: new Date().toISOString()
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: 'Datenbank Fehler: ' + error.message
+        });
+    }
 });
 
 app.get('/api/hierarchie', async (req, res) => {
@@ -30,18 +38,38 @@ app.get('/api/hierarchie', async (req, res) => {
         const result = await pool.query('SELECT * FROM dienstgrade ORDER BY id');
         res.json({
             success: true,
+            data: result.rows,
+            count: result.rows.length
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
+app.get('/api/statistiken', async (req, res) => {
+    try {
+        const result = await pool.query(`
+            SELECT rang_kategorie, COUNT(*) as anzahl 
+            FROM dienstgrade 
+            GROUP BY rang_kategorie
+        `);
+        res.json({
+            success: true,
             data: result.rows
         });
     } catch (error) {
-        console.error('Datenbankfehler:', error);
         res.status(500).json({
             success: false,
-            error: 'Datenbankfehler'
+            error: error.message
         });
     }
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Server läuft auf http://localhost:${PORT}`);
-    console.log(`✅ Health Check: http://localhost:${PORT}/api/health`);
+    console.log('Backend Server gestartet!');
+    console.log(`http://localhost:${PORT}`);
+    console.log('Health: http://localhost:5000/api/health');
 });

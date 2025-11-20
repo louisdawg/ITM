@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Dienstgrad, Statistik, ApiResponse } from '../types';
+import type { Dienstgrad, Statistik } from '../types';
 
 const API_BASE_URL = 'http://localhost:5000/api';
 
@@ -9,13 +9,7 @@ const api = axios.create({
 });
 
 export const hierarchieAPI = {
-  getHierarchie: (): Promise<ApiResponse<Dienstgrad[]>> => 
-    api.get('/hierarchie').then(response => response.data),
-  
-  getStatistiken: (): Promise<ApiResponse<Statistik[]>> => 
-    api.get('/statistiken').then(response => response.data),
-  
+  getHierarchie: () => api.get<{ success: boolean; data: Dienstgrad[] }>('/hierarchie'),
+  getStatistiken: () => api.get<{ success: boolean; data: Statistik[] }>('/statistiken'),
   getHealth: () => api.get('/health'),
 };
-
-export default api;
