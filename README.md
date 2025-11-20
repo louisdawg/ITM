@@ -3,30 +3,6 @@ Esercito Italiano – Organigramm
 
 Eine interaktive Visualisierung der Organisationsstruktur des Italienischen Heeres (Esercito Italiano) mit hierarchischem Baumdiagramm.
 
-Inhaltsverzeichnis
-------------------
-
-*   Überblick
-    
-*   Screenshots
-    
-*   Installation
-    
-*   Verwendung
-    
-*   API-Referenz
-    
-*   Datenbank
-    
-*   Fehlerbehebung
-    
-*   Entwicklung
-    
-*   Mitwirken
-    
-*   Lizenz
-    
-
 Überblick
 ---------
 
@@ -70,10 +46,8 @@ Installation
     Windows CMD:
     
     ```cmd
-    # PostgreSQL Service starten (falls nicht läuft)
     net start postgresql-x64-15
     
-    # Datenbank erstellen
     createdb -U postgres italienisches_heer
     ```
     
@@ -113,12 +87,12 @@ Installation
     
     ```javascript
     
-    const pool \= new Pool({
+    const pool = new Pool({
       user: 'postgres',
       host: 'localhost',
       database: 'italienisches_heer',
       password: '123',  // Hier anpassen
-      port: 5432,
+      port: 5432, // Hier ebenfalls
     });
     ```
     
@@ -300,7 +274,6 @@ Lösungen:
 
 *   PostgreSQL-Service starten:
     
-    ```bash
     # Windows
     net start postgresql-x64-15
     
@@ -312,12 +285,10 @@ Lösungen:
     
 *   Verbindung testen:
     
-    bash
     
     psql -U postgres -h localhost -p 5432
     
 *   Passwort in `backend/server.js` überprüfen
-    ```
 ```
     
 
@@ -368,8 +339,6 @@ Lösung:
 
 *   Anderen Port verwenden oder bestehenden Prozess beenden:
     
-    bash
-    
     # Prozesse auf Port 5000 finden
     netstat -ano | findstr :5000
     
@@ -393,8 +362,6 @@ Lösung:
 
 *   Abhängigkeiten neu installieren:
     
-    bash
-    
     cd backend && npm install
     cd ../frontend && npm install
 ```
@@ -411,8 +378,6 @@ Error: EADDRINUSE: address already in use :::3000
 Lösung:
 
 *   Anderen Port verwenden oder Vite konfigurieren:
-    
-    bash
     
     # Port ändern
     npm run dev -- --port 3001
@@ -469,9 +434,7 @@ Lösung:
     
 *   Verbindung ohne Passwort testen:
     
-    ```bash
     psql -U postgres -h localhost -d italienisches_heer
-    ```
 ```
     
 
