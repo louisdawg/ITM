@@ -187,7 +187,14 @@ Verwendung
     npm run dev
     ```
 
-2. Cache cleaning
+    oder falls Port belegt ist
+
+    ```
+    kill -9 $(lsof -ti:5000) 2>/dev/null
+    node server.js
+    ```
+
+3. Cache cleaning
 
    ```
    cd frontend
@@ -205,7 +212,7 @@ Verwendung
     npm run dev
    ```
 
-3. Oder Insgesamt (Backend + Frontend)
+4. Oder Insgesamt (Backend + Frontend)
 
    ```
    # Backend neu installieren
@@ -228,7 +235,7 @@ Verwendung
     cd frontend && npm run dev
    ```
 
-4. Esbuild Reparatur
+5. Esbuild Reparatur
 
    ```
    cd frontend
